@@ -151,7 +151,11 @@ export default function Home() {
               return (
                 <li
                   key={`${idx + 1}-${t.title}`}
-                  className="rounded-2xl border border-[#0E1E2E] bg-[#030B14] p-6"
+                  className={`rounded-2xl border p-6 ${
+                    isOut
+                      ? "border-[#89A1B9]/40 bg-[#030B14] shadow-[0_0_24px_-4px_rgba(137,161,185,0.2)]"
+                      : "border-[#0E1E2E] bg-[#030B14]"
+                  }`}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     <div className="flex items-start gap-4">
@@ -179,23 +183,21 @@ export default function Home() {
                       <div className="flex flex-wrap items-center gap-2">
                         {t.spotifyUrl ? (
                           <IconButton href={t.spotifyUrl} label="Spotify">
-                            <FaSpotify size={18} />
+                            <FaSpotify size={18} className="text-[#1DB954]" />
                           </IconButton>
                         ) : null}
                         {t.appleMusicUrl ? (
                           <IconButton href={t.appleMusicUrl} label="Apple Music">
-                            <SiApplemusic size={18} />
+                            <SiApplemusic size={18} className="text-[#FA243C]" />
                           </IconButton>
                         ) : null}
                         {t.visualVideoUrl ? (
                           <IconButton href={t.visualVideoUrl} label="Visual Video (YouTube)">
-                            <FaYoutube size={18} />
+                            <FaYoutube size={18} className="text-[#FF0000]" />
                           </IconButton>
                         ) : null}
                       </div>
-                    ) : (
-                      <div className="text-sm text-[#3A5468]">Upcoming</div>
-                    )}
+                    ) : null}
                   </div>
                 </li>
               );
