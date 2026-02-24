@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import type { ReactNode } from "react";
 
@@ -17,6 +18,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="min-h-dvh bg-[#010407] text-[#DDE4EC] antialiased">
         {children}
+        <Analytics />
       </body>
     </html>
   );
