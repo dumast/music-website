@@ -45,7 +45,7 @@ export const site = {
   artistName: "Terence Dumas",
   tagline: "Original EP in progress • Weekly covers",
   bio:
-    "I'm currently a student at UT Austin studying Computer Science, Math and Robotics. Completely unrelated to school, music and video production are my favorite hobbies. I pride myself in doing everything from the ground up: I write, record, and produce my own songs and videos. As of right now, I am building an original EP (opener song out now). I also post weekly covers across Instagram, TikTok, and YouTube.",
+    "I’m currently a student at The University of Texas at Austin studying Computer Science, Mathematics, and Robotics. Outside of school, music and video production are my favorite creative outlets. I take pride in building everything from the ground up: writing, recording, and producing my own songs and videos. I’m currently working toward an original EP (with the opening track already released) and also post weekly covers across Instagram, TikTok, and YouTube.",
 
   streaming: [
     {
@@ -130,7 +130,7 @@ export const site = {
   } satisfies EP,
 
   coversDescription:
-    "I release one cover per week across platforms. Everything you hear has been actually played by me, whether that is on the keyboard, guitar, or cajon. Most of the times, all the instruments you hear are visible in the video as a camera angle, except for harmonies. Below is a running index linked to the Instagram post for each cover.",
+    "I release one cover per week across platforms. Except for fully produced or story-driven videos, I don’t lip-sync: each POV is based on a single continuous performance take. While the audio is mixed and processed, it isn’t stitched together from multiple takes. In most cases, what you see is the performance used in the final audio, aside from added harmonies. Covers are my primary way of developing my production skills, which I then apply to my original music. This also creates a record of growth over time: even the earliest covers reflect where I started and remain valuable as markers of progress. Below is a running index linking to the Instagram post for each cover.",
 
   coverIndex: [
     { title: "Next Summer",          artist: "Damiano David",   instagramPostUrl: "https://www.instagram.com/p/DPo3vKyElJi/", youtubeUrl: "https://www.youtube.com/watch?v=QyqnFLOXE8c" },
