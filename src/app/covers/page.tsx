@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { site } from "@/content/site";
 
 import { FaInstagram, FaYoutube } from "react-icons/fa";
+
+function slugifyTitle(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/'/g, "-")
+    .replace(/\s+/g, "-");
+}
 
 export const metadata: Metadata = {
   title: `${site.artistName} — Covers`,
@@ -82,13 +90,30 @@ export default function CoversPage() {
             {[...site.coverIndex].reverse().map((c) => (
               <div
                 key={`${c.title}-${c.instagramPostUrl}`}
-                className={`flex flex-col justify-between gap-4 rounded-2xl border p-5 ${
+                className={`relative flex flex-col justify-between gap-4 overflow-hidden rounded-2xl border p-5 ${
                   c.youtubeUrl
-                    ? "border-[#1A2E40] bg-[#030B14]"
-                    : "border-[#0E1E2E] bg-[#050F1A]"
+                    ? "border-[#1A2E40]"
+                    : "border-[#0E1E2E]"
                 }`}
               >
-                <div>
+                {/* Background image */}
+                <Image
+                  src={`/images/covers/${slugifyTitle(c.title)}-web-500x307.webp`}
+                  alt=""
+                  fill
+                  aria-hidden
+                  className="object-cover opacity-80"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+                {/* Dark overlay to keep text readable */}
+                <div
+                  aria-hidden
+                  className={`absolute inset-0 ${
+                    c.youtubeUrl ? "bg-[#030B14]/75" : "bg-[#050F1A]/80"
+                  }`}
+                />
+
+                <div className="relative z-10">
                   <div className="flex flex-wrap items-center gap-1.5">
                     {c.youtubeUrl ? (
                       <span className="rounded-full bg-[#1A0A0A] px-2 py-0.5 text-xs text-[#FF6B6B]">
@@ -104,7 +129,7 @@ export default function CoversPage() {
                   <div className="mt-2 font-medium text-[#DDE4EC]">{c.title}</div>
                   {c.artist ? <div className="mt-0.5 text-sm text-[#7A96B0]">{c.artist}</div> : null}
                 </div>
-                <div className="flex flex-wrap items-center gap-2">
+                <div className="relative z-10 flex flex-wrap items-center gap-2">
                   <PillLink href={c.instagramPostUrl}>
                     <FaInstagram size={14} className="text-[#E1306C]" />
                   </PillLink>
