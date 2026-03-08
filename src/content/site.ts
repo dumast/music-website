@@ -152,6 +152,7 @@ export const site = {
     { title: "Ponyo",                artist: "Randjess",        instagramPostUrl: "https://www.instagram.com/p/DUdt4xqkTrJ/" },
     { title: "Rewrite the Stars",    artist: "The Greatest Showman", instagramPostUrl: "https://www.instagram.com/p/DUwcM-5j6xr/" },
     { title: "So Good",              artist: "Weston Estate",   instagramPostUrl: "https://www.instagram.com/p/DVFF7lCjwHD/" },
+    { title: "Golden Hour",          artist: "JVKE",            instagramPostUrl: "https://www.instagram.com/reel/DVXQN8vjMXT/" },
   ] satisfies CoveredSong[],
 
 } as const;

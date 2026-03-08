@@ -45,6 +45,19 @@ function PillLink({ href, children }: { href: string; children: ReactNode }) {
 }
 
 export default function CoversPage() {
+  // Count how many times each title appears in the cover index
+  const titleCounts = site.coverIndex.reduce<Record<string, number>>((acc, c) => {
+    acc[c.title] = (acc[c.title] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  // Assign a per-title occurrence index (1-based) to each entry in original order
+  const titleSeen: Record<string, number> = {};
+  const coversWithIndex = site.coverIndex.map((c) => {
+    titleSeen[c.title] = (titleSeen[c.title] ?? 0) + 1;
+    return { ...c, occurrenceIndex: titleSeen[c.title] };
+  });
+
   return (
     <main className="relative min-h-dvh overflow-hidden bg-[#010407]">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -87,7 +100,13 @@ export default function CoversPage() {
           </div>
 
           <div className="mt-5 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-            {[...site.coverIndex].reverse().map((c) => (
+            {[...coversWithIndex].reverse().map((c) => {
+              const slug = slugifyTitle(c.title);
+              const imageSrc =
+                titleCounts[c.title] > 1
+                  ? `/images/covers/${slug}-${c.occurrenceIndex}-web-500x307.webp`
+                  : `/images/covers/${slug}-web-500x307.webp`;
+              return (
               <div
                 key={`${c.title}-${c.instagramPostUrl}`}
                 className={`relative flex flex-col justify-between gap-4 overflow-hidden rounded-2xl border p-5 ${
@@ -98,7 +117,7 @@ export default function CoversPage() {
               >
                 {/* Background image */}
                 <Image
-                  src={`/images/covers/${slugifyTitle(c.title)}-web-500x307.webp`}
+                  src={imageSrc}
                   alt=""
                   fill
                   aria-hidden
@@ -140,7 +159,8 @@ export default function CoversPage() {
                   ) : null}
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 
