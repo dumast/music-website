@@ -122,9 +122,9 @@ export const site = {
         description: "Upcoming track.",
       },
       {
-        title: "Track 4",
+        title: "Myself First",
         status: "upcoming",
-        description: "Upcoming track.",
+        description: "Track 4 of the EP. This is the title song.",
       },
     ],
   } satisfies EP,
