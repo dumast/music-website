@@ -36,7 +36,7 @@ export type ImageAsset = {
 export type CoveredSong = {
   title: string;
   artist?: string;
-  featuring?: string;
+  featuring?: string[];
   instagramPostUrl: string;
   youtubeUrl?: string;
 };
@@ -139,7 +139,7 @@ export const site = {
     { title: "The A Team",           artist: "Ed Sheeran",      instagramPostUrl: "https://www.instagram.com/p/DQ7ER-EEQAB/" },
     { title: "Lucky",                artist: "Channie Duffman", instagramPostUrl: "https://www.instagram.com/p/DRNDKzwER3s/" },
     { title: "Yesterday",            artist: "The Beatles",     instagramPostUrl: "https://www.instagram.com/p/DRfR5hgj9wb/" },
-    { title: "The Vow",              artist: "Ed Sheeran",      featuring: "Robin Dumas", instagramPostUrl: "https://www.instagram.com/p/DRz0dcJEWM9/", youtubeUrl: "https://www.youtube.com/watch?v=5pxcGWEHCt4" },
+    { title: "The Vow",              artist: "Ed Sheeran",      featuring: ["Robin Dumas"], instagramPostUrl: "https://www.instagram.com/p/DRz0dcJEWM9/", youtubeUrl: "https://www.youtube.com/watch?v=5pxcGWEHCt4" },
     { title: "Break My Heart Again", artist: "FINNEAS",         instagramPostUrl: "https://www.instagram.com/p/DSDQRU5kSjF/" },
     { title: "I'd Rather Pretend",   artist: "Bryant Barnes",   instagramPostUrl: "https://www.instagram.com/p/DSVPR9tkcKG/" },
     { title: "Photograph",           artist: "Cody Fry",        instagramPostUrl: "https://www.instagram.com/p/DSoHjx0CLO0/" },
@@ -153,6 +153,9 @@ export const site = {
     { title: "Rewrite the Stars",    artist: "The Greatest Showman", instagramPostUrl: "https://www.instagram.com/p/DUwcM-5j6xr/" },
     { title: "So Good",              artist: "Weston Estate",   instagramPostUrl: "https://www.instagram.com/p/DVFF7lCjwHD/" },
     { title: "Golden Hour",          artist: "JVKE",            instagramPostUrl: "https://www.instagram.com/reel/DVXQN8vjMXT/" },
+    { title: "Glimpse of Us",        artist: "Joji",            instagramPostUrl: "https://www.instagram.com/reel/DVpFA-7D5tK/" },
+    { title: "Lettre à France",      artist: "Michel Polnareff",    featuring: ["Robin Dumas", "Anne Dumas"],        instagramPostUrl: "https://www.instagram.com/reel/DWLKQF7DYpF/" },
+    { title: "Hey Jude",             artist: "The Beatles",    instagramPostUrl: "https://www.instagram.com/reel/DWchSq1kQw4/" }
   ] satisfies CoveredSong[],
 
 } as const;

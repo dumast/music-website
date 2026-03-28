@@ -45,17 +45,19 @@ function PillLink({ href, children }: { href: string; children: ReactNode }) {
 }
 
 export default function CoversPage() {
-  // Count how many times each title appears in the cover index
+  // Count how many times each title appears in the cover index (case-insensitive)
   const titleCounts = site.coverIndex.reduce<Record<string, number>>((acc, c) => {
-    acc[c.title] = (acc[c.title] ?? 0) + 1;
+    const normalizedTitle = c.title.toLowerCase();
+    acc[normalizedTitle] = (acc[normalizedTitle] ?? 0) + 1;
     return acc;
   }, {});
 
-  // Assign a per-title occurrence index (1-based) to each entry in original order
+  // Assign a per-title occurrence index (1-based) to each entry in original order (case-insensitive)
   const titleSeen: Record<string, number> = {};
   const coversWithIndex = site.coverIndex.map((c) => {
-    titleSeen[c.title] = (titleSeen[c.title] ?? 0) + 1;
-    return { ...c, occurrenceIndex: titleSeen[c.title] };
+    const normalizedTitle = c.title.toLowerCase();
+    titleSeen[normalizedTitle] = (titleSeen[normalizedTitle] ?? 0) + 1;
+    return { ...c, occurrenceIndex: titleSeen[normalizedTitle] };
   });
 
   return (
@@ -102,8 +104,9 @@ export default function CoversPage() {
           <div className="mt-5 grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
             {[...coversWithIndex].reverse().map((c) => {
               const slug = slugifyTitle(c.title);
+              const normalizedTitle = c.title.toLowerCase();
               const imageSrc =
-                titleCounts[c.title] > 1
+                titleCounts[normalizedTitle] > 1
                   ? `/images/covers/${slug}-${c.occurrenceIndex}-web-500x307.webp`
                   : `/images/covers/${slug}-web-500x307.webp`;
               return (
@@ -139,9 +142,9 @@ export default function CoversPage() {
                         full video
                       </span>
                     ) : null}
-                    {c.featuring ? (
-                      <span className="rounded-full bg-[#0A2030] px-2 py-0.5 text-xs text-[#89A1B9]">
-                        feat. {c.featuring}
+                    {c.featuring && c.featuring.length > 0 ? (
+                      <span className="rounded-full bg-[#0A2030] px-2 py-0.5 text-xs text-[#89A1B9] whitespace-nowrap">
+                        feat. {c.featuring.join(" & ")}
                       </span>
                     ) : null}
                   </div>
