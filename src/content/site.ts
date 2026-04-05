@@ -25,6 +25,7 @@ export type EPTrack = {
 export type EP = {
   title: string;
   description: string;
+  presaveUrl?: string;
   tracks: EPTrack[];
 };
 
@@ -100,6 +101,7 @@ export const site = {
     title: "Myself First - EP roadmap",
     description:
       "Four tracks. Track 1 is out now — the next three are currently upcoming.",
+    presaveUrl: "https://distrokid.com/hyperfollow/terencedumas/myself-first?ref=release",
     tracks: [
       {
         title: "It Can't Understand",

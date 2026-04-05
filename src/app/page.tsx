@@ -144,7 +144,28 @@ export default function Home() {
           </div>
         </header>
 
-        <SectionPanel id="ep" title={site.ep.title} subtitle={site.ep.description}>
+        <section id="ep" className="mt-14 scroll-mt-20">
+          <div className="rounded-3xl border border-[#0E1E2E] bg-[#050F1A] p-6 sm:p-10">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-[#DDE4EC]">{site.ep.title}</h2>
+                <p className="mt-2 text-[#7A96B0]">{site.ep.description}</p>
+              </div>
+              {site.ep.presaveUrl && (
+                <a
+                  href={site.ep.presaveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="glow-border relative inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-[#DDE4EC] transition-all hover:text-white hover:shadow-[0_0_24px_rgba(137,161,185,0.35)]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                    <path fillRule="evenodd" d="M19.952 1.651a.75.75 0 0 1 .298.599V16.303a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .706.122Z" clipRule="evenodd" />
+                  </svg>
+                  Pre-save now
+                </a>
+              )}
+            </div>
+            <div className="mt-6">
           <ol className="grid gap-4">
             {site.ep.tracks.map((t, idx) => {
               const isOut = t.status === "out now";
@@ -203,7 +224,9 @@ export default function Home() {
               );
             })}
           </ol>
-        </SectionPanel>
+            </div>
+          </div>
+        </section>
 
         <SectionPanel
           id="covers"
