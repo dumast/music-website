@@ -157,7 +157,8 @@ export const site = {
     { title: "Golden Hour",          artist: "JVKE",            instagramPostUrl: "https://www.instagram.com/reel/DVXQN8vjMXT/" },
     { title: "Glimpse of Us",        artist: "Joji",            instagramPostUrl: "https://www.instagram.com/reel/DVpFA-7D5tK/" },
     { title: "Lettre à France",      artist: "Michel Polnareff",    featuring: ["Robin Dumas", "Anne Dumas"],        instagramPostUrl: "https://www.instagram.com/reel/DWLKQF7DYpF/" },
-    { title: "Hey Jude",             artist: "The Beatles",    instagramPostUrl: "https://www.instagram.com/reel/DWchSq1kQw4/" }
+    { title: "Hey Jude",             artist: "The Beatles",    instagramPostUrl: "https://www.instagram.com/reel/DWchSq1kQw4/" },
+    { title: "The First Time",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/p/DWwbQkTkeV2/" }
   ] satisfies CoveredSong[],
 
 } as const;
