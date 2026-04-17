@@ -78,8 +78,116 @@ export default function Home() {
           </Link>
         </nav>
 
+        <section id="ep" className="mt-10 scroll-mt-20">
+          <div className="rounded-3xl border border-[#0E1E2E] bg-[#050F1A] p-6 sm:p-10">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="max-w-2xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-[#DDE4EC]">{site.ep.title}</h2>
+                <p className="mt-2 text-[#7A96B0]">{site.ep.description}</p>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                {site.ep.spotifyUrl && (
+                  <a
+                    href={site.ep.spotifyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#1DB954] px-4 py-2 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+                  >
+                    <FaSpotify size={18} />
+                    Listen on Spotify
+                  </a>
+                )}
+                {site.ep.appleMusicUrl && (
+                  <a
+                    href={site.ep.appleMusicUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#FA243C] px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                  >
+                    <SiApplemusic size={18} />
+                    Listen on Apple Music
+                  </a>
+                )}
+                {site.ep.presaveUrl && (
+                  <a
+                    href={site.ep.presaveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glow-border relative inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-[#DDE4EC] transition-all hover:text-white hover:shadow-[0_0_24px_rgba(137,161,185,0.35)]"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+                      <path fillRule="evenodd" d="M19.952 1.651a.75.75 0 0 1 .298.599V16.303a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .706.122Z" clipRule="evenodd" />
+                    </svg>
+                    Pre-save now
+                  </a>
+                )}
+              </div>
+            </div>
+            <div className="mt-6">
+              <ol className="grid gap-4">
+                {site.ep.tracks.map((t, idx) => {
+                  const isOut = t.status === "out now";
+                  return (
+                    <li
+                      key={`${idx + 1}-${t.title}`}
+                      className={`rounded-2xl border p-6 ${
+                        isOut
+                          ? "border-[#89A1B9]/40 bg-[#030B14] shadow-[0_0_24px_-4px_rgba(137,161,185,0.2)]"
+                          : "border-[#0E1E2E] bg-[#030B14]"
+                      }`}
+                    >
+                      <div className="flex flex-wrap items-start justify-between gap-4">
+                        <div className="flex items-start gap-4">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#89A1B9] text-sm font-semibold text-[#010407]">
+                            {idx + 1}
+                          </div>
+                          <div>
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h3 className="text-lg font-semibold tracking-tight text-[#DDE4EC]">{t.title}</h3>
+                              <span
+                                className={
+                                  isOut
+                                    ? "rounded-full bg-[#0A2030] px-2 py-1 text-xs font-medium text-[#89A1B9]"
+                                    : "rounded-full bg-[#060C14] px-2 py-1 text-xs font-medium text-[#3A5468]"
+                                }
+                              >
+                                {t.status}
+                              </span>
+                            </div>
+                            <p className="mt-2 text-sm leading-relaxed text-[#7A96B0]">{t.description}</p>
+                          </div>
+                        </div>
+
+                        {isOut ? (
+                          <div className="flex flex-wrap items-center gap-2">
+                            {t.spotifyUrl ? (
+                              <IconButton href={t.spotifyUrl} label="Spotify">
+                                <FaSpotify size={18} className="text-[#1DB954]" />
+                              </IconButton>
+                            ) : null}
+                            {t.appleMusicUrl ? (
+                              <IconButton href={t.appleMusicUrl} label="Apple Music">
+                                <SiApplemusic size={18} className="text-[#FA243C]" />
+                              </IconButton>
+                            ) : null}
+                            {t.visualVideoUrl ? (
+                              <IconButton href={t.visualVideoUrl} label="Visual Video (YouTube)">
+                                <FaYoutube size={18} className="text-[#FF0000]" />
+                              </IconButton>
+                            ) : null}
+                          </div>
+                        ) : null}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          </div>
+        </section>
+
         {/* Hero */}
-        <header className="mt-10 grid gap-8 lg:grid-cols-12 lg:items-center">
+        <header className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
             <h1 className="text-4xl font-semibold tracking-tight text-[#DDE4EC] sm:text-5xl">
               {site.artistName}
@@ -143,90 +251,6 @@ export default function Home() {
             </div>
           </div>
         </header>
-
-        <section id="ep" className="mt-14 scroll-mt-20">
-          <div className="rounded-3xl border border-[#0E1E2E] bg-[#050F1A] p-6 sm:p-10">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div className="max-w-2xl">
-                <h2 className="text-2xl font-semibold tracking-tight text-[#DDE4EC]">{site.ep.title}</h2>
-                <p className="mt-2 text-[#7A96B0]">{site.ep.description}</p>
-              </div>
-              {site.ep.presaveUrl && (
-                <a
-                  href={site.ep.presaveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="glow-border relative inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-[#DDE4EC] transition-all hover:text-white hover:shadow-[0_0_24px_rgba(137,161,185,0.35)]"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
-                    <path fillRule="evenodd" d="M19.952 1.651a.75.75 0 0 1 .298.599V16.303a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.403-4.909l2.311-.66a1.5 1.5 0 0 0 1.088-1.442V6.994l-9 2.572v9.737a3 3 0 0 1-2.176 2.884l-1.32.377a2.553 2.553 0 1 1-1.402-4.909l2.31-.66a1.5 1.5 0 0 0 1.088-1.442V5.25a.75.75 0 0 1 .544-.721l10.5-3a.75.75 0 0 1 .706.122Z" clipRule="evenodd" />
-                  </svg>
-                  Pre-save now
-                </a>
-              )}
-            </div>
-            <div className="mt-6">
-          <ol className="grid gap-4">
-            {site.ep.tracks.map((t, idx) => {
-              const isOut = t.status === "out now";
-              return (
-                <li
-                  key={`${idx + 1}-${t.title}`}
-                  className={`rounded-2xl border p-6 ${
-                    isOut
-                      ? "border-[#89A1B9]/40 bg-[#030B14] shadow-[0_0_24px_-4px_rgba(137,161,185,0.2)]"
-                      : "border-[#0E1E2E] bg-[#030B14]"
-                  }`}
-                >
-                  <div className="flex flex-wrap items-start justify-between gap-4">
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#89A1B9] text-sm font-semibold text-[#010407]">
-                        {idx + 1}
-                      </div>
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-lg font-semibold tracking-tight text-[#DDE4EC]">{t.title}</h3>
-                          <span
-                            className={
-                              isOut
-                                ? "rounded-full bg-[#0A2030] px-2 py-1 text-xs font-medium text-[#89A1B9]"
-                                : "rounded-full bg-[#060C14] px-2 py-1 text-xs font-medium text-[#3A5468]"
-                            }
-                          >
-                            {t.status}
-                          </span>
-                        </div>
-                        <p className="mt-2 text-sm leading-relaxed text-[#7A96B0]">{t.description}</p>
-                      </div>
-                    </div>
-
-                    {isOut ? (
-                      <div className="flex flex-wrap items-center gap-2">
-                        {t.spotifyUrl ? (
-                          <IconButton href={t.spotifyUrl} label="Spotify">
-                            <FaSpotify size={18} className="text-[#1DB954]" />
-                          </IconButton>
-                        ) : null}
-                        {t.appleMusicUrl ? (
-                          <IconButton href={t.appleMusicUrl} label="Apple Music">
-                            <SiApplemusic size={18} className="text-[#FA243C]" />
-                          </IconButton>
-                        ) : null}
-                        {t.visualVideoUrl ? (
-                          <IconButton href={t.visualVideoUrl} label="Visual Video (YouTube)">
-                            <FaYoutube size={18} className="text-[#FF0000]" />
-                          </IconButton>
-                        ) : null}
-                      </div>
-                    ) : null}
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
-            </div>
-          </div>
-        </section>
 
         <SectionPanel
           id="covers"

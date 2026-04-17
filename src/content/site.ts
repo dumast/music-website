@@ -26,6 +26,8 @@ export type EP = {
   title: string;
   description: string;
   presaveUrl?: string;
+  spotifyUrl?: string;
+  appleMusicUrl?: string;
   tracks: EPTrack[];
 };
 
@@ -44,7 +46,7 @@ export type CoveredSong = {
 
 export const site = {
   artistName: "Terence Dumas",
-  tagline: "Original EP in progress • Weekly covers",
+  tagline: "Original EP out • Weekly covers",
   bio:
     "I’m currently a student at The University of Texas at Austin studying Computer Science, Mathematics, and Robotics. Outside of school, music and video production are my favorite creative outlets. I take pride in building everything from the ground up: writing, recording, and producing my own songs and videos. I’m currently working toward an original EP (with the opening track already released) and also post weekly covers across Instagram, TikTok, and YouTube.",
 
@@ -100,8 +102,10 @@ export const site = {
   ep: {
     title: "Myself First - EP roadmap",
     description:
-      "Four tracks. Track 1 is out now — the next three are currently upcoming.",
-    presaveUrl: "https://distrokid.com/hyperfollow/terencedumas/myself-first?ref=release",
+      "The full EP is out!",
+    presaveUrl: "",
+    spotifyUrl: "https://open.spotify.com/album/5IqM2exRFH9jCvuqagR04y?si=ynJJxUKHSeGcht0YYpidnQ",
+    appleMusicUrl: "https://music.apple.com/us/album/myself-first-ep/1886853378",
     tracks: [
       {
         title: "It Can't Understand",
@@ -114,19 +118,26 @@ export const site = {
         visualVideoUrl: "https://www.youtube.com/watch?v=w8b0pCX_ojw",
       },
       {
-        title: "Track 2",
-        status: "upcoming",
-        description: "Upcoming track.",
+        title: "The Way I Loved You",
+        status: "out now",
+        description: "Track 2 of the EP.",
+        spotifyUrl: "https://open.spotify.com/track/5IhJ5dLuKqZd8JSJcvsaR9?si=78843b10d7474e74",
+        appleMusicUrl: "https://music.apple.com/us/song/the-way-i-loved-you/1886853380"
+
       },
       {
-        title: "Track 3",
-        status: "upcoming",
-        description: "Upcoming track.",
+        title: "The Vermilion",
+        status: "out now",
+        description: "Track 3 of the EP.",
+        spotifyUrl: "https://open.spotify.com/track/6RtaDmYCprttOsCidnHTp4?si=81f678049869412c",
+        appleMusicUrl: "https://music.apple.com/us/song/the-vermilion/1886853381"
       },
       {
         title: "Myself First",
-        status: "upcoming",
+        status: "out now",
         description: "Track 4 of the EP. This is the title song.",
+        spotifyUrl: "https://open.spotify.com/track/1FsIbFwhK9loSyyX1eIzeF?si=0d19a1341e2b4acb",
+        appleMusicUrl: "https://music.apple.com/us/song/myself-first/1886853382"
       },
     ],
   } satisfies EP,
@@ -158,7 +169,8 @@ export const site = {
     { title: "Glimpse of Us",        artist: "Joji",            instagramPostUrl: "https://www.instagram.com/reel/DVpFA-7D5tK/" },
     { title: "Lettre à France",      artist: "Michel Polnareff",    featuring: ["Robin Dumas", "Anne Dumas"],        instagramPostUrl: "https://www.instagram.com/reel/DWLKQF7DYpF/" },
     { title: "Hey Jude",             artist: "The Beatles",    instagramPostUrl: "https://www.instagram.com/reel/DWchSq1kQw4/" },
-    { title: "The First Time",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/p/DWwbQkTkeV2/" }
+    { title: "The First Time",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/p/DWwbQkTkeV2/" },
+    { title: "Zombie Lady",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXCkA50EY17/" }
   ] satisfies CoveredSong[],
 
 } as const;
