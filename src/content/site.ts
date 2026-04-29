@@ -187,7 +187,7 @@ export const site = {
     { title: "Born With a Broken Heart", artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXUbxqJkfRn/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/born-with-a-broken-heart-3?in=terence-dumas-487867926/sets/damiano-david-covers&si=7b1643b8ee5743628280cc5e79b1e8c9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
     { title: "Beauty and a Beat",        artist: "Justin Bieber",    instagramPostUrl: "https://www.instagram.com/reel/DXXixy5kWoU/" },
     { title: "Next Summer",              artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXmd4mfEZMT/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/next-summer-4?in=terence-dumas-487867926/sets/damiano-david-covers&si=6fc01fd839474d209376ef4b67e736c1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
-    { title: "If the World Was Ending",  artist: "JP Saxe",          instagramPostUrl: "https://www.instagram.com/reel/DXr2yrNkVKR/" }
+    { title: "If the World Was Ending",  artist: "JP Saxe",          instagramPostUrl: "https://www.instagram.com/reel/DXr2yrNkVKR/", youtubeUrl: "https://youtu.be/5sUWgUozPqw" }
   ] satisfies CoveredSong[],
 
   series: [
