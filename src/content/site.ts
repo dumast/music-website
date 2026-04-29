@@ -42,6 +42,15 @@ export type CoveredSong = {
   featuring?: string[];
   instagramPostUrl: string;
   youtubeUrl?: string;
+  soundcloudUrl?: string;
+  series?: string;
+};
+
+export type CoverSeries = {
+  slug: string;
+  name: string;
+  description: string;
+  soundcloudPlaylistUrl?: string;
 };
 
 export const site = {
@@ -58,6 +67,10 @@ export const site = {
     {
       label: "Apple Music",
       href: "https://music.apple.com/us/artist/terence-dumas/1872041101",
+    },
+    {
+      label: "SoundCloud",
+      href: "https://soundcloud.com/terence-dumas-487867926?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
     },
   ] satisfies SocialLink[],
 
@@ -169,8 +182,21 @@ export const site = {
     { title: "Glimpse of Us",        artist: "Joji",            instagramPostUrl: "https://www.instagram.com/reel/DVpFA-7D5tK/" },
     { title: "Lettre à France",      artist: "Michel Polnareff",    featuring: ["Robin Dumas", "Anne Dumas"],        instagramPostUrl: "https://www.instagram.com/reel/DWLKQF7DYpF/" },
     { title: "Hey Jude",             artist: "The Beatles",    instagramPostUrl: "https://www.instagram.com/reel/DWchSq1kQw4/" },
-    { title: "The First Time",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/p/DWwbQkTkeV2/" },
-    { title: "Zombie Lady",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXCkA50EY17/" }
+    { title: "The First Time",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/p/DWwbQkTkeV2/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/the-first-time-1?in=terence-dumas-487867926/sets/damiano-david-covers&si=5576eb930c444743b97318af79c7d288&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
+    { title: "Zombie Lady",             artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXCkA50EY17/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/zombie-lady-2?in=terence-dumas-487867926/sets/damiano-david-covers&si=0f1d9659e573408f8da299a42031c1d5&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
+    { title: "Born With a Broken Heart", artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXUbxqJkfRn/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/born-with-a-broken-heart-3?in=terence-dumas-487867926/sets/damiano-david-covers&si=7b1643b8ee5743628280cc5e79b1e8c9&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
+    { title: "Beauty and a Beat",        artist: "Justin Bieber",    instagramPostUrl: "https://www.instagram.com/reel/DXXixy5kWoU/" },
+    { title: "Next Summer",              artist: "Damiano David",    instagramPostUrl: "https://www.instagram.com/reel/DXmd4mfEZMT/", soundcloudUrl: "https://soundcloud.com/terence-dumas-487867926/next-summer-4?in=terence-dumas-487867926/sets/damiano-david-covers&si=6fc01fd839474d209376ef4b67e736c1&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing", series: "damiano-david" },
+    { title: "If the World Was Ending",  artist: "JP Saxe",          instagramPostUrl: "https://www.instagram.com/reel/DXr2yrNkVKR/" }
   ] satisfies CoveredSong[],
+
+  series: [
+    {
+      slug: "damiano-david",
+      name: "Damiano David series",
+      description: "I'm covering every one of Damiano David's songs until he notices me.",
+      soundcloudPlaylistUrl: "https://soundcloud.com/terence-dumas-487867926/sets/damiano-david-covers?si=9746509fd3c547d3803cdf1f11438d6c&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing",
+    },
+  ] satisfies CoverSeries[],
 
 } as const;

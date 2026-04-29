@@ -2,7 +2,7 @@ import { site } from "@/content/site";
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaSpotify, FaYoutube, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaSpotify, FaYoutube, FaInstagram, FaTiktok, FaSoundcloud } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 
 function PillLink({ href, children }: { href: string; children: ReactNode }) {
@@ -207,8 +207,10 @@ export default function Home() {
                 >
                   {s.label === "Spotify" ? (
                     <FaSpotify size={22} className="text-[#1DB954]" />
-                  ) : (
+                  ) : s.label === "Apple Music" ? (
                     <SiApplemusic size={22} className="text-[#FA243C]" />
+                  ) : (
+                    <FaSoundcloud size={22} className="text-[#FF5500]" />
                   )}
                   <span className="text-[#A8BDC9]">{s.label}</span>
                 </a>
