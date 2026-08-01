@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 function ExternalLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
-      className="text-[#89A1B9] underline decoration-[#1A2E40] underline-offset-4 transition-colors hover:decoration-[#89A1B9]"
+      className="text-[#E8A33D] underline decoration-[#4A2814] underline-offset-4 transition-colors hover:decoration-[#E8A33D]"
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -34,7 +34,7 @@ function ExternalLink({ href, children }: { href: string; children: ReactNode })
 function PillLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a
-      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#1A2E40] bg-[#050F1A] transition-colors hover:border-[#2A4558] hover:bg-[#0A1A27]"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-[#4A2814] bg-[#170905] transition-colors hover:border-[#6B3A1D] hover:bg-[#2A1208]"
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -72,32 +72,32 @@ export default async function CoversPage({
     : coversWithIndex;
 
   return (
-    <main className="relative min-h-dvh overflow-hidden bg-[#010407]">
+    <main className="relative min-h-dvh overflow-hidden bg-[#0A0402]">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#020D18] blur-3xl" />
-        <div className="absolute -top-24 left-[-100px] h-[400px] w-[400px] rounded-full bg-[#020A14]/60 blur-3xl" />
-        <div className="absolute -top-24 right-[-140px] h-[480px] w-[480px] rounded-full bg-[#020810]/80 blur-3xl" />
+        <div className="absolute -top-40 left-1/2 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#3D1206] blur-3xl" />
+        <div className="absolute -top-24 left-[-100px] h-[400px] w-[400px] rounded-full bg-[#2A0C04]/60 blur-3xl" />
+        <div className="absolute -top-24 right-[-140px] h-[480px] w-[480px] rounded-full bg-[#1F0800]/80 blur-3xl" />
       </div>
 
       <div className="mx-auto max-w-5xl px-6 py-12">
         <header className="flex flex-col gap-6">
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-            <Link className="text-[#7A96B0] transition-colors hover:text-[#DDE4EC]" href="/">
-              EP
+            <Link className="text-[#C99B76] transition-colors hover:text-[#F5E8D8]" href="/">
+              Original Songs
             </Link>
-            <span className="font-medium text-[#DDE4EC]">Covers</span>
+            <span className="font-medium text-[#F5E8D8]">Covers</span>
           </nav>
 
           <div className="space-y-2">
-            <h1 className="text-4xl font-semibold tracking-tight text-[#DDE4EC] sm:text-5xl">Covers</h1>
-            <p className="text-base text-[#7A96B0]">{site.coversDescription}</p>
+            <h1 className="text-4xl font-semibold tracking-tight text-[#F5E8D8] sm:text-5xl">Covers</h1>
+            <p className="text-base text-[#C99B76]">{site.coversDescription}</p>
           </div>
 
           <div className="mt-2 grid gap-4 sm:grid-cols-3">
             {site.weeklyCovers.map((c) => (
-              <div key={c.platform} className="rounded-2xl border border-[#0E1E2E] bg-[#050F1A] p-5">
-                <div className="text-sm font-semibold text-[#DDE4EC]">{c.platform}</div>
-                <div className="mt-2 text-sm text-[#7A96B0]">{c.description}</div>
+              <div key={c.platform} className="rounded-2xl border border-[#3A2013] bg-[#170905] p-5">
+                <div className="text-sm font-semibold text-[#F5E8D8]">{c.platform}</div>
+                <div className="mt-2 text-sm text-[#C99B76]">{c.description}</div>
                 <div className="mt-4 text-sm">
                   <ExternalLink href={c.href}>View</ExternalLink>
                 </div>
@@ -108,23 +108,23 @@ export default async function CoversPage({
 
         {site.series.length > 0 ? (
           <section className="mt-14 scroll-mt-20">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#DDE4EC]">Series</h2>
+            <h2 className="text-2xl font-semibold tracking-tight text-[#F5E8D8]">Series</h2>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
               {site.series.map((s) => {
                 const seriesCovers = site.coverIndex.filter((c) => c.series === s.slug);
                 return (
-                  <div key={s.slug} className="rounded-2xl border border-[#0E1E2E] bg-[#050F1A] p-5">
+                  <div key={s.slug} className="rounded-2xl border border-[#3A2013] bg-[#170905] p-5">
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <div className="text-base font-semibold text-[#DDE4EC]">{s.name}</div>
-                      <span className="rounded-full bg-[#0A2030] px-2 py-0.5 text-xs text-[#89A1B9]">
+                      <div className="text-base font-semibold text-[#F5E8D8]">{s.name}</div>
+                      <span className="rounded-full bg-[#3A1A06] px-2 py-0.5 text-xs text-[#E8A33D]">
                         {seriesCovers.length} covers
                       </span>
                     </div>
-                    <div className="mt-2 text-sm text-[#7A96B0]">{s.description}</div>
+                    <div className="mt-2 text-sm text-[#C99B76]">{s.description}</div>
                     <div className="mt-4 flex flex-wrap items-center gap-3">
                       <Link
                         href={`/covers?series=${s.slug}#cover-index`}
-                        className="inline-flex items-center gap-2 rounded-full border border-[#1A2E40] bg-[#030B14] px-4 py-2 text-sm font-medium text-[#DDE4EC] transition-colors hover:border-[#2A4558] hover:bg-[#0A1A27]"
+                        className="inline-flex items-center gap-2 rounded-full border border-[#4A2814] bg-[#100502] px-4 py-2 text-sm font-medium text-[#F5E8D8] transition-colors hover:border-[#6B3A1D] hover:bg-[#2A1208]"
                       >
                         Filter index
                       </Link>
@@ -149,8 +149,8 @@ export default async function CoversPage({
 
         <section id="cover-index" className="mt-14 scroll-mt-20">
           <div className="flex flex-wrap items-end justify-between gap-3">
-            <h2 className="text-2xl font-semibold tracking-tight text-[#DDE4EC]">Cover index</h2>
-            <div className="text-sm text-[#7A96B0]">
+            <h2 className="text-2xl font-semibold tracking-tight text-[#F5E8D8]">Cover index</h2>
+            <div className="text-sm text-[#C99B76]">
               {filteredCovers.length}
               {activeSeries ? ` of ${site.coverIndex.length}` : ""} total
             </div>
@@ -161,8 +161,8 @@ export default async function CoversPage({
               href="/covers#cover-index"
               className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
                 activeSeries
-                  ? "border-[#1A2E40] bg-[#030B14] text-[#7A96B0] hover:border-[#2A4558] hover:text-[#DDE4EC]"
-                  : "border-[#89A1B9] bg-[#0A2030] text-[#DDE4EC]"
+                  ? "border-[#4A2814] bg-[#100502] text-[#C99B76] hover:border-[#6B3A1D] hover:text-[#F5E8D8]"
+                  : "border-[#E8A33D] bg-[#3A1A06] text-[#F5E8D8]"
               }`}
             >
               All
@@ -175,8 +175,8 @@ export default async function CoversPage({
                   href={`/covers?series=${s.slug}#cover-index`}
                   className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
                     isActive
-                      ? "border-[#89A1B9] bg-[#0A2030] text-[#DDE4EC]"
-                      : "border-[#1A2E40] bg-[#030B14] text-[#7A96B0] hover:border-[#2A4558] hover:text-[#DDE4EC]"
+                      ? "border-[#E8A33D] bg-[#3A1A06] text-[#F5E8D8]"
+                      : "border-[#4A2814] bg-[#100502] text-[#C99B76] hover:border-[#6B3A1D] hover:text-[#F5E8D8]"
                   }`}
                 >
                   {s.name}
@@ -198,8 +198,8 @@ export default async function CoversPage({
                 key={`${c.title}-${c.instagramPostUrl}`}
                 className={`relative flex flex-col justify-between gap-4 overflow-hidden rounded-2xl border p-5 ${
                   c.youtubeUrl
-                    ? "border-[#1A2E40]"
-                    : "border-[#0E1E2E]"
+                    ? "border-[#4A2814]"
+                    : "border-[#3A2013]"
                 }`}
               >
                 {/* Background image */}
@@ -215,7 +215,7 @@ export default async function CoversPage({
                 <div
                   aria-hidden
                   className={`absolute inset-0 ${
-                    c.youtubeUrl ? "bg-[#030B14]/75" : "bg-[#050F1A]/80"
+                    c.youtubeUrl ? "bg-[#100502]/75" : "bg-[#170905]/80"
                   }`}
                 />
 
@@ -227,18 +227,18 @@ export default async function CoversPage({
                       </span>
                     ) : null}
                     {c.featuring && c.featuring.length > 0 ? (
-                      <span className="rounded-full bg-[#0A2030] px-2 py-0.5 text-xs text-[#89A1B9] whitespace-nowrap">
+                      <span className="rounded-full bg-[#3A1A06] px-2 py-0.5 text-xs text-[#E8A33D] whitespace-nowrap">
                         feat. {c.featuring.join(" & ")}
                       </span>
                     ) : null}
                     {c.series ? (
-                      <span className="rounded-full bg-[#1F1A0A] px-2 py-0.5 text-xs text-[#E8C46B] whitespace-nowrap">
+                      <span className="rounded-full bg-[#241407] px-2 py-0.5 text-xs text-[#F0C878] whitespace-nowrap">
                         {site.series.find((s) => s.slug === c.series)?.name ?? c.series}
                       </span>
                     ) : null}
                   </div>
-                  <div className="mt-2 font-medium text-[#DDE4EC]">{c.title}</div>
-                  {c.artist ? <div className="mt-0.5 text-sm text-[#7A96B0]">{c.artist}</div> : null}
+                  <div className="mt-2 font-medium text-[#F5E8D8]">{c.title}</div>
+                  {c.artist ? <div className="mt-0.5 text-sm text-[#C99B76]">{c.artist}</div> : null}
                 </div>
                 <div className="relative z-10 flex flex-wrap items-center gap-2">
                   <PillLink href={c.instagramPostUrl}>
@@ -261,7 +261,7 @@ export default async function CoversPage({
           </div>
         </section>
 
-        <footer className="mt-16 border-t border-[#0E1E2E] pt-10 text-sm text-[#3A5468]">
+        <footer className="mt-16 border-t border-[#3A2013] pt-10 text-sm text-[#6B4A34]">
           <div>© {new Date().getFullYear()} {site.artistName}</div>
         </footer>
       </div>

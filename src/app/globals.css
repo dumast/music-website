@@ -23,8 +23,8 @@ summary {
 	--border-angle: 0deg;
 	position: relative;
 	background:
-		linear-gradient(#0d1926, #0d1926) padding-box,
-		conic-gradient(from var(--border-angle), #89A1B9 0%, #3A5468 25%, #89A1B9 50%, #3A5468 75%, #89A1B9 100%) border-box;
+		linear-gradient(#170905, #170905) padding-box,
+		conic-gradient(from var(--border-angle), #FFB84D 0%, #B3300A 25%, #FFB84D 50%, #B3300A 75%, #FFB84D 100%) border-box;
 	border: 2px solid transparent;
 	animation: border-rotate 3s linear infinite;
 }
@@ -34,7 +34,7 @@ summary {
 	position: absolute;
 	inset: -4px;
 	border-radius: inherit;
-	background: conic-gradient(from var(--border-angle), #89A1B9 0%, transparent 25%, #89A1B9 50%, transparent 75%, #89A1B9 100%);
+	background: conic-gradient(from var(--border-angle), #FFB84D 0%, transparent 25%, #FFB84D 50%, transparent 75%, #FFB84D 100%);
 	opacity: 0.3;
 	filter: blur(8px);
 	z-index: -1;

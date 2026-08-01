@@ -29,6 +29,14 @@ export type EP = {
   spotifyUrl?: string;
   appleMusicUrl?: string;
   tracks: EPTrack[];
+  coverImage?: ImageAsset;
+};
+
+export type Single = {
+  title: string;
+  subtitle?: string;
+  description: string;
+  presaveUrl?: string;
 };
 
 export type ImageAsset = {
@@ -107,10 +115,18 @@ export const site = {
     },
   ] satisfies WeeklyCoverChannel[],
 
-  albumCover: {
-    src: "/images/Cover.png",
-    alt: "Album cover art",
+  heroImage: {
+    src: "/images/andromeda-cover.jpg",
+    alt: "Andromeda single cover art",
   } satisfies ImageAsset,
+
+  andromeda: {
+    title: "Andromeda",
+    subtitle: "mintr & Terence Dumas",
+    description:
+      "My twinkling light, I hope you see. Out August 14, 2026.",
+    presaveUrl: "https://distrokid.com/hyperfollow/mintrandterencedumas/andromeda",
+  } satisfies Single,
 
   ep: {
     title: "Myself First - EP roadmap",
@@ -119,6 +135,10 @@ export const site = {
     presaveUrl: "",
     spotifyUrl: "https://open.spotify.com/album/5IqM2exRFH9jCvuqagR04y?si=ynJJxUKHSeGcht0YYpidnQ",
     appleMusicUrl: "https://music.apple.com/us/album/myself-first-ep/1886853378",
+    coverImage: {
+      src: "/images/myself-first-cover.png",
+      alt: "Myself First EP cover art",
+    },
     tracks: [
       {
         title: "It Can't Understand",
